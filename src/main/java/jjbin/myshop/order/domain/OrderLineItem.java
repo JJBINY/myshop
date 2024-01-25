@@ -1,5 +1,6 @@
 package jjbin.myshop.order.domain;
 
+import jjbin.myshop.generic.domain.Money;
 import jjbin.myshop.product.domain.Product;
 
 public class OrderLineItem {
@@ -13,5 +14,8 @@ public class OrderLineItem {
 
     public void placeOrder(){
         product.reduceStock(quantity);
+    }
+    public Money calculatePrice(){
+        return product.getPrice().times(quantity);
     }
 }
