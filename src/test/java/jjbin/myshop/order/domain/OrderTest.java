@@ -20,7 +20,7 @@ class OrderTest {
 
     @Test
     @DisplayName("주문을 할 수 있다.")
-    void 주문_성공() throws Exception {
+    void 주문() throws Exception {
         // given
         Order sut = anOrder().build();
 
@@ -28,7 +28,7 @@ class OrderTest {
         sut.place();
 
         // then
-        assertThat(sut.isOrdered()).isTrue();
+        assertThat(sut.getStatus()).isEqualTo(Order.OrderStatus.ORDERED);
     }
 
     @Test
@@ -40,7 +40,6 @@ class OrderTest {
                 .build();
         OrderLineItem item = anOrderLineItem()
                 .product(product)
-                .quantity(10)
                 .build();
         Order sut = anOrder()
                 .orderLineItems(List.of(item))
@@ -54,29 +53,28 @@ class OrderTest {
 
     static Stream<Arguments> 주문_검증_실패() {
         return Stream.of(
-                Arguments.of("초코파이", 1, "종류", "큰 박스", Money.wons(3000)),
-                Arguments.of("빅파이", 100, "종류", "큰 박스", Money.wons(3000)),
-                Arguments.of("빅파이", 1, "종류 선택", "큰 박스", Money.wons(3000)),
-                Arguments.of("빅파이", 1, "종류", "작은 박스", Money.wons(3000)),
-                Arguments.of("빅파이", 1, "종류", "큰박스", Money.wons(5000))
+                Arguments.of("초코파이", "종류", "큰 박스", Money.wons(3000)),
+                Arguments.of("빅파이", "종류 선택", "큰 박스", Money.wons(3000)),
+                Arguments.of("빅파이", "종류", "작은 박스", Money.wons(3000)),
+                Arguments.of("빅파이", "종류", "큰박스", Money.wons(5000))
         );
     }
 
     @ParameterizedTest
     @MethodSource("주문_검증_실패")
     @DisplayName("주문과 상품 정보가 일치하지 않으면 주문이 실패한다.")
-    void 주문_검증_실패(String itemName, int quantity, String optionGroupName, String optionName, Money price) throws Exception {
+    void 주문_검증_실패(String itemName, String optionGroupName, String optionName, Money price) throws Exception {
         // given
         Product product = aProduct()
                 .name("빅파이")
                 .stock(10)
-                .basicOptionGroupSpec(anOptionGroupSpec()
+                .basicOptionGroupSpecs(List.of(anOptionGroupSpec()
                         .name("종류")
                         .optionSpecs(List.of(anOptionSpec()
                                 .name("큰 박스")
                                 .price(Money.wons(3000))
                                 .build()))
-                        .build())
+                        .build()))
                 .build();
         OrderOption option = anOrderOption()
                 .name(optionName)
@@ -88,8 +86,7 @@ class OrderTest {
         OrderLineItem item = anOrderLineItem()
                 .product(product)
                 .name(itemName)
-                .quantity(quantity)
-                .optionGroups(List.of(optionGroup))
+                .basicOrderOptionGroups(List.of(optionGroup))
                 .build();
         Order sut = anOrder()
                 .orderLineItems(List.of(item))
@@ -103,25 +100,15 @@ class OrderTest {
     @DisplayName("주문 금액을 계산할 수 있다.")
     void 주문_금액_계산() throws Exception {
         // given
-        OrderOption option = anOrderOption()
-                .price(Money.wons(1000))
-                .build();
-        OrderOptionGroup optionGroup = anOrderOptionGroup()
-                .options(List.of(option))
-                .build();
-        OrderLineItem item = anOrderLineItem()
-                .quantity(10)
-                .optionGroups(List.of(optionGroup))
-                .build();
         Order sut = anOrder()
-                .orderLineItems(List.of(item))
+                .orderLineItems(List.of(anOrderLineItem().quantity(3).build()))
                 .build();
 
         // when
         Money totalPrice = sut.calculateTotalPrice();
 
         // then
-        assertThat(totalPrice).isEqualTo(Money.wons(10000));
+        assertThat(totalPrice).isEqualTo(BASIC_OPTION_PRICE.times(3));
     }
 
 }
