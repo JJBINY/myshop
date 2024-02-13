@@ -10,30 +10,30 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ProductTest {
 
     @Test
-    @DisplayName("재고를 수량만큼 감소시킬 수 있다.")
-    void can_reduce_stock() throws Exception {
+    @DisplayName("재고를 감소시킬 수 있다.")
+    void 재고_감소() throws Exception {
         // given
         Product sut = FixtureBuilder.aProduct()
                 .stock(10)
                 .build();
 
         // when
-        sut.reduceStock(10);
+        sut.reduceStock();
         
         // then
-        assertThat(sut.getStock()).isEqualTo(0);
+        assertThat(sut.getStock()).isEqualTo(9);
     }
     
     @Test
-    @DisplayName("재고가 충분하지 않으면 재고를 감소시킬 수 없다.")
-    void can_not_reduce_stock_when_there_is_not_enough() throws Exception {
+    @DisplayName("재고가 부족하면 재고를 감소시킬 수 없다.")
+    void 재고_감소_실패() throws Exception {
         // given
         Product sut = FixtureBuilder.aProduct()
-                .stock(9)
+                .stock(0)
                 .build();
 
         // when, then
-        assertThatThrownBy(() -> sut.reduceStock(10))
+        assertThatThrownBy(() -> sut.reduceStock())
                 .isInstanceOf(IllegalStateException.class);
     }
 

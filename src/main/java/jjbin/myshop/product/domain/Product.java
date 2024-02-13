@@ -6,6 +6,7 @@ import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
@@ -13,50 +14,53 @@ import static java.util.Objects.requireNonNullElse;
 
 public class Product {
     @Getter
+    private Long id;
+    @Getter
     private final String name;
     private final String description;
     @Getter
     private int stock;
+    private List<OptionGroupSpecification> basicOptionGroupSpecs = new ArrayList<>(); //todo 다른 옵션 그룹과 따로 구분짓는 게 나은지 한번 더 고민
     private List<OptionGroupSpecification> optionGroupSpecs = new ArrayList<>();
 
     @Builder
-    public Product(@NonNull String name, String description, int stock, @NonNull OptionGroupSpecification basicOptionGroupSpec, List<OptionGroupSpecification> optionGroupSpecs) {
+    public Product(Long id, @NonNull String name, String description, int stock, @NonNull List<OptionGroupSpecification> basicOptionGroupSpecs, List<OptionGroupSpecification> optionGroupSpecs) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.stock = stock;
-        this.optionGroupSpecs.add(basicOptionGroupSpec);
+        this.basicOptionGroupSpecs.addAll(basicOptionGroupSpecs);
         this.optionGroupSpecs.addAll(requireNonNullElse(optionGroupSpecs, emptyList()));
 
         checkInvariant();
     }
 
-    private void checkInvariant(){
+    private void checkInvariant() {
         requireNonNull(name, "제품명은 필수입니다.");
 
-        if(stock<0){
+        if (basicOptionGroupSpecs.isEmpty()) {
+            throw new IllegalStateException("기본 옵션 그룹은 필수입니다.");
+        }
+
+        if (basicOptionGroupSpecs.stream().filter(spec -> !spec.isBasic()).count() > 0) {
+            throw new IllegalArgumentException("기본 옵션 그룹은 기본 선택이어야 합니다.");
+        }
+
+        if (stock < 0) {
             throw new IllegalStateException("재고는 0 이상이어야 합니다.");
         }
-
-        if(optionGroupSpecs.stream().filter(OptionGroupSpecification::isBaisc).count() != 1){
-            throw new IllegalStateException("유일한 기본 옵션 그룹이 존재해야 합니다.");
-        }
     }
 
-    public boolean canReduceStock(int quantity) {
-        return stock >= quantity;
+    public boolean canReduceStock() {
+        return stock > 0;
     }
 
-    public void reduceStock(int quantity) {
-        if(quantity<=0){
-            throw new IllegalArgumentException("감소할 수량은 양수여야 합니다.");
-        }
-
-        if (!canReduceStock(quantity)) {
+    public void reduceStock() {
+        if (!canReduceStock()) {
             throw new IllegalStateException("재고가 부족합니다.");
         }
 
-        stock -= quantity;
-
+        stock -= 1;
         assert stock >= 0;
     }
 
@@ -64,5 +68,58 @@ public class Product {
         return List.copyOf(optionGroupSpecs);
     }
 
+    public boolean isSatisfiedBy(LineItem lineItem) {
+        if (!Objects.equals(lineItem.name(), name)) {
+            return false;
+        }
 
+        if (lineItem.basicOptionGroups().size() != basicOptionGroupSpecs.size()) {
+            return false;
+        }
+
+        for (OptionGroupSpecification spec : basicOptionGroupSpecs) {
+            if (!satisfied(lineItem.basicOptionGroups(), spec)) {
+                return false;
+            }
+        }
+
+        if(!lineItem.optionGroups().isEmpty()) {
+            for (OptionGroupSpecification spec : optionGroupSpecs) {
+                if (!satisfied(lineItem.optionGroups(), spec)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private boolean satisfied(List<OptionGroup> optionGroups, OptionGroupSpecification spec) {
+        for (OptionGroup optionGroup : optionGroups) {
+            if (spec.isSatisfiedBy(optionGroup)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product product)) return false;
+        if (!name.equals(product.name)) return false;
+        if (!Objects.equals(description, product.description)) return false;
+        if (!basicOptionGroupSpecs.equals(product.basicOptionGroupSpecs)) return false;
+        return Objects.equals(optionGroupSpecs, product.optionGroupSpecs);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + basicOptionGroupSpecs.hashCode();
+        result = 31 * result + (optionGroupSpecs != null ? optionGroupSpecs.hashCode() : 0);
+        return result;
+    }
 }
