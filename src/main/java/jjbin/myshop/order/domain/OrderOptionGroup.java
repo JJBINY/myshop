@@ -1,5 +1,6 @@
 package jjbin.myshop.order.domain;
 
+import jjbin.myshop.discount.domain.context.OptionGroupDiscountContext;
 import jjbin.myshop.generic.domain.Money;
 import jjbin.myshop.product.domain.OptionGroup;
 import jjbin.myshop.product.domain.OptionGroupSpecification;
@@ -11,12 +12,13 @@ import java.util.List;
 
 
 public class OrderOptionGroup {
-
+    private Long id;
     private String name;
     private List<OrderOption> orderOptions = new ArrayList<>();
 
     @Builder
-    public OrderOptionGroup(@NonNull String name, @NonNull List<OrderOption> options) {
+    public OrderOptionGroup(Long id, @NonNull String name, @NonNull List<OrderOption> options) {
+        this.id = id;
         this.name = name;
         this.orderOptions.addAll(options);
     }
@@ -35,10 +37,18 @@ public class OrderOptionGroup {
         throw new IllegalStateException("상품 옵션이 변경되었습니다.");
     }
 
-    private OptionGroup toOptionGroup() {
+    public OptionGroup toOptionGroup() {
         return OptionGroup.builder()
                 .name(name)
                 .options(orderOptions.stream().map(OrderOption::toOption).toList())
                 .build();
     }
+
+    public OptionGroupDiscountContext toDiscountContext() {
+        return OptionGroupDiscountContext.builder()
+                .name(name)
+                .optionContexts(orderOptions.stream().map(OrderOption::toDiscountContext).toList())
+                .build();
+    }
+
 }
