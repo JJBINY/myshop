@@ -7,6 +7,7 @@ import lombok.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
@@ -19,8 +20,8 @@ public class Product {
     private final String name;
     private final String description;
     @Getter
-    private int stock;
-    private List<OptionGroupSpecification> basicOptionGroupSpecs = new ArrayList<>(); //todo 다른 옵션 그룹과 따로 구분짓는 게 나은지 한번 더 고민
+    private AtomicInteger stock;
+    private List<OptionGroupSpecification> basicOptionGroupSpecs = new ArrayList<>();
     private List<OptionGroupSpecification> optionGroupSpecs = new ArrayList<>();
 
     @Builder
@@ -28,7 +29,7 @@ public class Product {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.stock = stock;
+        this.stock = new AtomicInteger(stock);
         this.basicOptionGroupSpecs.addAll(basicOptionGroupSpecs);
         this.optionGroupSpecs.addAll(requireNonNullElse(optionGroupSpecs, emptyList()));
 
@@ -46,13 +47,13 @@ public class Product {
             throw new IllegalArgumentException("기본 옵션 그룹은 기본 선택이어야 합니다.");
         }
 
-        if (stock < 0) {
+        if (stock.get() < 0) {
             throw new IllegalStateException("재고는 0 이상이어야 합니다.");
         }
     }
 
     public boolean canReduceStock() {
-        return stock > 0;
+        return stock.get() > 0;
     }
 
     public void reduceStock() {
@@ -60,8 +61,8 @@ public class Product {
             throw new IllegalStateException("재고가 부족합니다.");
         }
 
-        stock -= 1;
-        assert stock >= 0;
+        stock.decrementAndGet();
+        assert stock.get() >= 0;
     }
 
     public List<OptionGroupSpecification> getOptionGroupSpecs() {

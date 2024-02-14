@@ -21,7 +21,7 @@ class ProductTest {
         sut.reduceStock();
         
         // then
-        assertThat(sut.getStock()).isEqualTo(9);
+        assertThat(sut.getStock().get()).isEqualTo(9);
     }
     
     @Test
