@@ -1,264 +1,130 @@
-<mxfile host="app.diagrams.net" modified="2024-02-01T18:18:37.893Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="vb2REEf4pHJ8X9ZDFXKj" version="22.1.21" type="device">
+<mxfile host="app.diagrams.net" modified="2024-01-25T17:36:21.203Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="WKWfNKoGrLGZ7noVB8ry" version="22.1.21" type="device">
   <diagram name="페이지-1" id="0NAuxaNLoAuZgDav1SPl">
-    <mxGraphModel dx="1077" dy="2318" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1750" dy="1868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-40" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-40" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry width="770" height="470" as="geometry" />
         </mxCell>
-        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=default;" parent="1" vertex="1">
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-1" value="100" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry y="493.75" width="770" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-3" value="&lt;h1&gt;상품(Product)&lt;/h1&gt;&lt;div&gt;상품은 상품명, 설명, 옵션 그룹 묶음, 재고로 이루어진다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;옵션 그룹&lt;/div&gt;&lt;div&gt;- 이름과 가격을 가진 옵션들로 이루어진다.&lt;/div&gt;&lt;div&gt;- 기본 선택과 배타 선택 여부를 선택할 수 있다.&lt;/div&gt;" style="text;html=1;strokeColor=default;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;shadow=1;" parent="1" vertex="1">
-          <mxGeometry x="30" y="42.5" width="320" height="187.5" as="geometry" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-3" value="&lt;h1&gt;상품(Product)&lt;/h1&gt;&lt;div&gt;상품은 상품명, 설명, 가격, 재고로 이루어진다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;재고를 수량만큼 감소시킨다.&lt;/div&gt;&lt;div&gt;- 현재 재고가 수량보다 적으면 재고 감소가 실패한다.&lt;/div&gt;" style="text;html=1;strokeColor=#000000;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="42.5" width="320" height="165" as="geometry" />
         </mxCell>
-        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-4" value="&lt;h1&gt;주문(Order)&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;상품 주문&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- 주문 정보가 올바른지 검사한다.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- 주문 시 주문 개수만큼 상품의 재고가 차감된다.&lt;/div&gt;&lt;div&gt;- 주문이 완료되면 주문 상태가 &#39;주문됨&#39;으로 변경된다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;주문 유효성 검사&lt;/div&gt;&lt;div&gt;- 주문 상태가 올바르지 않으면 주문이 실패한다.&lt;/div&gt;&lt;div&gt;- 주문 정보가 상품 정보와 일치하지 않으면 주문이 실패한다.&lt;/div&gt;&lt;div&gt;- 상품 재고가 부족하면 주문이 실패한다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=default;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="30" y="257.5" width="320" height="192.5" as="geometry" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-4" value="&lt;h1&gt;주문(Order)&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;등록된 상품을 주문한다.&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- 주문 시 주문 개수만큼 재고가 차감된다.&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;border-color: var(--border-color);&quot;&gt;- 주문 시 상품의 재고가 부족하면 주문이 실패한다.&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- 주문이 완료되면 주문 상태가 &#39;주문됨&#39;으로 변경된다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#000000;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="30" y="257.5" width="320" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="_WgmGBYQjVT3pX2aO_Yh-10" target="GSdNc3NH_IZ9b_cdnVpj-125">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-10" value=":Order" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="563.04" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-128" value="3: 항목 주문" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-127">
-          <mxGeometry x="-0.0173" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-12" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="_WgmGBYQjVT3pX2aO_Yh-10" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="583.04" as="sourcePoint" />
+            <mxPoint x="240" y="573.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-10" value=":Order" style="whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
-          <mxGeometry x="170" y="563.04" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-16" value=":Product" style="whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
-          <mxGeometry x="620" y="563.04" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-2" value="&lt;h1&gt;결제(Payment)&lt;/h1&gt;&lt;div&gt;주문 정보, 결제 수단, 결제 금액으로 이루어진다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;주문에 대한 결제를 진행한다.&lt;/div&gt;&lt;div&gt;- 결제 방법은 여러 가지다.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=default;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="401" y="40" width="320" height="167.5" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;shadow=1;strokeColor=#66FF66;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
-          <mxGeometry x="813" y="-610" width="2317" height="1353.75" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-7" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="940" y="-480" width="1112" height="410" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-8" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="940" y="-20" width="1112" height="298.75" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-9" target="GSdNc3NH_IZ9b_cdnVpj-111">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1532" y="-340" as="targetPoint" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-14" value="1: 주문하기" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="140" y="573.04" as="sourcePoint" />
+            <mxPoint x="220" y="573.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Product&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ name: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ descrioption: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ price: Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ stock: int&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# discountPolicies: &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;List&amp;lt;DiscountPolicy&amp;lt;OrderLineItem&amp;gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ canReduceStock(int): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ reduceStock(int): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ getDiscountedPrice(OrderLineItem): Money&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1201.5" y="-430" width="260" height="180" as="geometry" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-16" value=":Product" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="563.04" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-14" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="940" y="288.75" width="600" height="290" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Order&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# orderLineItems: List&amp;lt;OrderLineItem&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# orderStatus: OrderStatus&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ place(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# validate(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ payed(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calculateTotalPrice(): Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# isOrderd(): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ isPayed(): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="960" y="60" width="230" height="167.49" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-12" target="GSdNc3NH_IZ9b_cdnVpj-88">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-97" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-12" target="GSdNc3NH_IZ9b_cdnVpj-9">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1331.5" y="-96.88999999999987" as="targetPoint" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-17" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="_WgmGBYQjVT3pX2aO_Yh-16" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="763.04" as="sourcePoint" />
+            <mxPoint x="350" y="583.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;OrderLineItem&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# product: Product&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# name: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# quantity: int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# orderOptionGroups: &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;List&amp;lt;OrderOptionGroup&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ place(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calculatePrice(): Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ validate(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1241" y="60" width="181" height="170" as="geometry" />
+        <mxCell id="_WgmGBYQjVT3pX2aO_Yh-18" value="2: 재고 감소" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="370" y="573.04" as="sourcePoint" />
+            <mxPoint x="450" y="573.04" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;" edge="1" source="GSdNc3NH_IZ9b_cdnVpj-10" target="GSdNc3NH_IZ9b_cdnVpj-12" parent="1">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-2" value="&lt;h1&gt;&lt;font color=&quot;#cc0000&quot;&gt;결제(Payment)&lt;/font&gt;&lt;/h1&gt;&lt;div&gt;&lt;font color=&quot;#cc0000&quot;&gt;주문 정보, 결제 수단, 결제 금액으로 이루어진다.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#cc0000&quot;&gt;주문에 대한 결제를 진행한다.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#cc0000&quot;&gt;- 결제 방법은 여러 가지다.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#000000;fillColor=#FFFFFF;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="401" y="257.5" width="320" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-3" value="3: 결제하기" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="370" y="653.75" as="sourcePoint" />
+            <mxPoint x="450" y="653.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-5" value=":Payment" style="whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="470" y="643.75" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="813" width="980" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-7" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;" vertex="1" parent="1">
+          <mxGeometry x="838" y="18.75" width="600" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-8" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;" vertex="1" parent="1">
+          <mxGeometry x="838" y="213.75" width="600" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Product&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ name: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ descrioption: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ price: Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ stock: int&amp;nbsp;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ canReduceStock(int): boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ reduceStock(int): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1178" y="41.25" width="200" height="142.5" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-14" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;" vertex="1" parent="1">
+          <mxGeometry x="838" y="408.75" width="600" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Order&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# orderLineItems: List&amp;lt;OrderLineItem&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ orderStatus: OrderStatus&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ place(): void&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ payed(): void&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ calculateTotalPrice(): Money&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="858" y="251.26000000000022" width="230" height="127.5" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="GSdNc3NH_IZ9b_cdnVpj-12" target="GSdNc3NH_IZ9b_cdnVpj-9" parent="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-15" target="GSdNc3NH_IZ9b_cdnVpj-22">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;OrderLineItem&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# product: Product&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# quantity: int&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ placeOrder(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ calculatePrice(): Money&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="1178" y="258.1300000000001" width="200" height="113.75" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="GSdNc3NH_IZ9b_cdnVpj-10" target="GSdNc3NH_IZ9b_cdnVpj-12" parent="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=default;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-15" target="GSdNc3NH_IZ9b_cdnVpj-10">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-15" target="GSdNc3NH_IZ9b_cdnVpj-22">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;&lt;b&gt;Payment&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# order: Order&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# method: PaymentMethod&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# amount: Money&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ pay(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="975" y="321.25" width="200" height="110" as="geometry" />
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-15" target="GSdNc3NH_IZ9b_cdnVpj-10">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-22" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i style=&quot;&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b style=&quot;&quot;&gt;PaymentMethod&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ pay(Money): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="337.5" width="170" height="77.5" as="geometry" />
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;font color=&quot;#cc0000&quot;&gt;Payment&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# order: Order&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# method: PaymentMethod&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# amount: Money&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ pay(): void&lt;/font&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="873" y="441.25" width="200" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-29" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;&lt;b&gt;Cash&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;# amount: Money&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ pay(): void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="480" width="170" height="80" as="geometry" />
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-22" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;PaymentMethod&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ pay(Money): void&lt;/font&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1178" y="457.5" width="170" height="77.5" as="geometry" />
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-30" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=default;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-29" target="GSdNc3NH_IZ9b_cdnVpj-22">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-27" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="_WgmGBYQjVT3pX2aO_Yh-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="663.3299999999999" as="sourcePoint" />
+            <mxPoint x="470" y="663.04" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="662.75" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-29" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;&lt;b&gt;&lt;font color=&quot;#cc0000&quot;&gt;Cash&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;color: rgb(204, 0, 0); background-color: initial;&quot;&gt;# amount: Money&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ pay(): void&lt;/font&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="1178" y="578.75" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-30" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-29" target="GSdNc3NH_IZ9b_cdnVpj-22">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1198" y="553.04" as="sourcePoint" />
             <mxPoint x="1358" y="553.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-39" value="주문 수량" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;strokeColor=default;" edge="1" parent="1">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-37" value="주문 정보" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1">
           <mxGeometry width="60" relative="1" as="geometry">
-            <mxPoint x="530" y="618.22" as="sourcePoint" />
-            <mxPoint x="610" y="618.22" as="targetPoint" />
+            <mxPoint x="370" y="628.04" as="sourcePoint" />
+            <mxPoint x="450" y="628.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-43" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;fillColor=#D9D9D9;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="770" y="1180" width="1020" height="450" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-45" target="GSdNc3NH_IZ9b_cdnVpj-46">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-45" target="GSdNc3NH_IZ9b_cdnVpj-70">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-45" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#cc0000&quot;&gt;DiscountPolicy&amp;lt;T&amp;gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;# conditions:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;List&amp;lt;DiscountCondition&amp;lt;T&amp;gt;&amp;gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+&amp;nbsp;calculateDiscountAmount&lt;span style=&quot;background-color: initial;&quot;&gt;(T): Money&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# getDiscountAmount(): Money&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1180" y="1241.24" width="280" height="97.5" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-46" target="GSdNc3NH_IZ9b_cdnVpj-70">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-46" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;i style=&quot;&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b style=&quot;&quot;&gt;DiscountCondition&amp;lt;T&amp;gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+ isSatisfiedBy(T): boolean&lt;/font&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1550" y="1258.11" width="220" height="63.75" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-60" target="GSdNc3NH_IZ9b_cdnVpj-45">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-60" target="GSdNc3NH_IZ9b_cdnVpj-70">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-60" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#cc0000&quot;&gt;Discount&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;# conditions:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;List&amp;lt;DiscountCondition&amp;lt;T&amp;gt;&amp;gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+&amp;nbsp;calculateTotalDiscountAmount&lt;span style=&quot;background-color: initial;&quot;&gt;(): Money&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# add(DiscountPolicy): void&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# addAll(List&amp;lt;DiscountPolicy&amp;gt;): void&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="800" y="1232.5" width="280" height="106.24" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-70" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;i style=&quot;&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b style=&quot;&quot;&gt;DiscountContext&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="822" y="1370.6399999999999" width="220" height="63.75" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-71" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#cc0000&quot;&gt;ProductDiscountContext&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;# conditions:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;List&amp;lt;DiscountCondition&amp;lt;T&amp;gt;&amp;gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;+&amp;nbsp;calculateTotalDiscountAmount&lt;span style=&quot;background-color: initial;&quot;&gt;(): Money&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;# add(DiscountPolicy): void&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# addAll(List&amp;lt;DiscountPolicy&amp;gt;): void&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font color=&quot;#cc0000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="790" y="1491.26" width="280" height="106.24" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-72" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-71" target="GSdNc3NH_IZ9b_cdnVpj-70">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="442" y="1462.51" as="sourcePoint" />
-            <mxPoint x="602" y="1462.51" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-113" target="GSdNc3NH_IZ9b_cdnVpj-101">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1732" y="-145.77999999999975" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-88" target="GSdNc3NH_IZ9b_cdnVpj-113">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1632" y="-115" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-114" value="Create" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-90">
-          <mxGeometry x="0.2108" y="-3" relative="1" as="geometry">
-            <mxPoint x="-3" y="36" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-88" target="GSdNc3NH_IZ9b_cdnVpj-99">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-88" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;OrderOptionGroup&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ name: String&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ orderOptions: List&amp;lt;OrderOption&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calculatePrice(): Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ validate(List&amp;lt;OptionGroupSpec...): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# toOptionGroup(): OptionGrouop&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1512" y="80.33000000000001" width="240" height="131.86" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-111" target="GSdNc3NH_IZ9b_cdnVpj-102">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1732" y="-340" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-94" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-111" target="GSdNc3NH_IZ9b_cdnVpj-113">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1632" y="-314.69000000000005" as="sourcePoint" />
-            <mxPoint x="1632" y="-176.55999999999995" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-99" target="GSdNc3NH_IZ9b_cdnVpj-101">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-115" value="Create" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-106">
-          <mxGeometry x="-0.117" y="2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-99" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;OrderOption&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# name: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# price: Money&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getPrice(): Money&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ toOption(): Option&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1792" y="89.38999999999999" width="200" height="114.68" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-101" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;Option&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ name: String&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ price: Money&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1792" y="-181.56" width="200" height="71.56" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-102" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span&gt;OptionSpecification&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# name: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# price: Money&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ isSatisfiedBy(Option): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1792" y="-387.66" width="200" height="95.31" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-103" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-102" target="GSdNc3NH_IZ9b_cdnVpj-101">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1882" y="-119.89" as="sourcePoint" />
-            <mxPoint x="1882" y="13.110000000000014" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-111" value="&lt;p style=&quot;border-color: var(--border-color); margin: 4px 0px 0px; text-align: center;&quot;&gt;OptionGroupSpecification&lt;/p&gt;&lt;hr style=&quot;border-color: var(--border-color);&quot; size=&quot;1&quot;&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;# name: String&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;# baisc: boolean&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;# exclusive: boolean&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;# optionSpecs: &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;List&amp;lt;OptionSpecification&amp;gt;&lt;/p&gt;&lt;hr style=&quot;border-color: var(--border-color);&quot; size=&quot;1&quot;&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ isSatisfiedBy(OptionGroup): boolean&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1519.5" y="-412.65999999999997" width="225" height="145.32" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-113" value="&lt;p style=&quot;border-color: var(--border-color); margin: 4px 0px 0px; text-align: center;&quot;&gt;OptionGroup&lt;/p&gt;&lt;hr style=&quot;border-color: var(--border-color);&quot; size=&quot;1&quot;&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ name: String&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ options: List&amp;lt;Option&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fontStyle=0;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="1532" y="-181.56" width="200" height="71.56" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-123" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.108;exitY=-0.004;exitDx=0;exitDy=0;entryX=0.924;entryY=-0.083;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;elbow=vertical;" edge="1" parent="1" source="_WgmGBYQjVT3pX2aO_Yh-10" target="_WgmGBYQjVT3pX2aO_Yh-10">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="230" y="530" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-129" value="2: 유효성 검사" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-123">
-          <mxGeometry x="0.0063" y="1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="510" y="590" as="sourcePoint" />
-            <mxPoint x="620" y="590" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-131" value="6: 재고 감소" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-126">
-          <mxGeometry x="0.0019" y="-2" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-125" target="_WgmGBYQjVT3pX2aO_Yh-16">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-142" value="4: 상품 정보 조회" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-141">
-          <mxGeometry x="-0.0746" y="3" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-125" value=":OrderLineItem" style="whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
-          <mxGeometry x="390" y="563.04" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-137" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="GSdNc3NH_IZ9b_cdnVpj-135" target="_WgmGBYQjVT3pX2aO_Yh-10">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-138" value="1:주문" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-137">
-          <mxGeometry x="0.0274" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-135" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="80" y="553.04" width="30" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-139" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.889;entryY=-0.004;entryDx=0;entryDy=0;elbow=vertical;entryPerimeter=0;" edge="1" parent="1" target="GSdNc3NH_IZ9b_cdnVpj-125">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="400" y="563" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="440" y="530" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-140" value="5:유효성 검사" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GSdNc3NH_IZ9b_cdnVpj-139">
-          <mxGeometry x="-0.2851" y="-1" relative="1" as="geometry">
-            <mxPoint x="25" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-143" value="상품 정보" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;strokeColor=default;" edge="1" parent="1">
+        <mxCell id="GSdNc3NH_IZ9b_cdnVpj-39" value="주문 수량" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1">
           <mxGeometry width="60" relative="1" as="geometry">
-            <mxPoint x="610" y="552" as="sourcePoint" />
-            <mxPoint x="530" y="551.99" as="targetPoint" />
+            <mxPoint x="370" y="543.75" as="sourcePoint" />
+            <mxPoint x="450" y="543.75" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
