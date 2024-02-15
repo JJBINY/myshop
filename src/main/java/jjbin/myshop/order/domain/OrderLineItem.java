@@ -69,10 +69,6 @@ public class OrderLineItem {
         if(!product.canReduceStock()){
             throw new IllegalStateException("상품 재고가 부족합니다.");
         }
-
-        for (OrderOptionGroup group : orderOptionGroups) {
-            group.validate(product.getOptionGroupSpecs());
-        }
     }
 
     public LineItem toLineItem(){

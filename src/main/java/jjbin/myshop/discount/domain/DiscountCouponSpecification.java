@@ -17,13 +17,17 @@ import static java.util.Collections.emptyList;
 public class DiscountCouponSpecification {
 
     private Long id;
+    private String name;
+    private String description;
     private final DiscountPolicy policy;
     private final boolean exclusive;
     private final List<DiscountCondition> conditions = new ArrayList<>();
 
     @Builder
-    public DiscountCouponSpecification(Long id, @NonNull DiscountPolicy policy, boolean exclusive, List<DiscountCondition> conditions) {
+    public DiscountCouponSpecification(Long id, String name, String description, @NonNull DiscountPolicy policy, boolean exclusive, List<DiscountCondition> conditions) {
         this.id = id;
+        this.name = name;
+        this.description = description;
         this.policy = policy;
         this.exclusive = exclusive;
         this.conditions.addAll(Objects.requireNonNullElse(conditions, emptyList()));

@@ -7,6 +7,7 @@ import lombok.Getter;
 public class Payment {
 
     public enum PaymentStatus{PENDING, COMPLETED, FAILED}
+    private Long id;
 
     @Getter private PaymentStatus status;
     private final PaymentMethod method;
@@ -15,7 +16,8 @@ public class Payment {
     @Getter private Money paymentAmount;
 
     @Builder
-    public Payment(PaymentStatus status,PaymentMethod method, Money orderAmount,Money discountAmount) {
+    public Payment(Long id, PaymentStatus status,PaymentMethod method, Money orderAmount,Money discountAmount) {
+        this.id = id;
         this.status = status;
         this.method = method;
         this.orderAmount = orderAmount;

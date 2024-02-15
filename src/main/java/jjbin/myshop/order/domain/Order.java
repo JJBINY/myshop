@@ -58,9 +58,6 @@ public class Order {
             throw new IllegalStateException("주문 항목이 비어 있습니다.");
         }
 
-        for (OrderDiscountCoupon discountCoupon : discountCoupons) {
-            discountCoupon.isSatisfiedBy(toDiscountContext());
-        }
         orderLineItems.forEach(OrderLineItem::validate);
     }
 

@@ -13,8 +13,8 @@ import static java.util.Collections.emptyList;
 
 public class OrderDiscountContext extends DiscountContext {
 
-    private final List<LineItemDiscountContext> lineItemContexts = new ArrayList<>();
-    private final List<OrderDiscountCoupon> discountCoupons = new ArrayList<>();
+    private List<LineItemDiscountContext> lineItemContexts = new ArrayList<>();
+    private List<OrderDiscountCoupon> discountCoupons = new ArrayList<>();
 
     @Builder
     public OrderDiscountContext(@NonNull List<LineItemDiscountContext> lineItemContexts, List<OrderDiscountCoupon> discountCoupons) {

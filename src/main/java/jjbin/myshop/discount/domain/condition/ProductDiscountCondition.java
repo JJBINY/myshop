@@ -14,7 +14,6 @@ public class ProductDiscountCondition implements DiscountCondition {
         this.product = product;
     }
 
-
     @Override
     public boolean isSatisfiedBy(DiscountContext context) {
         if (context instanceof LineItemDiscountContext) {

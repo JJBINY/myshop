@@ -3,7 +3,6 @@ package jjbin.myshop.order.domain;
 import jjbin.myshop.discount.domain.context.OptionGroupDiscountContext;
 import jjbin.myshop.generic.domain.Money;
 import jjbin.myshop.product.domain.OptionGroup;
-import jjbin.myshop.product.domain.OptionGroupSpecification;
 import lombok.Builder;
 import lombok.NonNull;
 
@@ -25,16 +24,6 @@ public class OrderOptionGroup {
 
     public Money calculatePrice() {
         return Money.sum(orderOptions,OrderOption::getPrice);
-    }
-
-    void validate(List<OptionGroupSpecification> optionGroupSpecs) {
-        for (OptionGroupSpecification spec : optionGroupSpecs) {
-            if (spec.isSatisfiedBy(this.toOptionGroup())) {
-                return;
-            }
-        }
-
-        throw new IllegalStateException("상품 옵션이 변경되었습니다.");
     }
 
     public OptionGroup toOptionGroup() {

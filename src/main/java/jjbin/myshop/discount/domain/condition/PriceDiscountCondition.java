@@ -5,10 +5,16 @@ import jjbin.myshop.generic.domain.Money;
 import lombok.Builder;
 
 public class PriceDiscountCondition implements DiscountCondition {
+    private Long id;
     private final Money amount;
 
-    @Builder
     public PriceDiscountCondition(Money amount) {
+        this.amount = amount;
+    }
+
+    @Builder
+    public PriceDiscountCondition(Long id, Money amount) {
+        this.id = id;
         this.amount = amount;
     }
 
