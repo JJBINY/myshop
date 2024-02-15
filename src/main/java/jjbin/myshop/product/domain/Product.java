@@ -24,7 +24,7 @@ public class Product {
     }
     public void reduceStock(int quantity){
         if(!canReduceStock(quantity)){
-            throw new IllegalStateException("재고가 부족합니다.");
+            throw new IllegalStateException();
         }
         stock -= quantity;
     }
