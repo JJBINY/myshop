@@ -3,6 +3,7 @@ package jjbin.myshop.order.domain;
 import jjbin.myshop.discount.domain.OrderDiscountCoupon;
 import jjbin.myshop.discount.domain.context.OrderDiscountContext;
 import jjbin.myshop.generic.domain.Money;
+import jjbin.myshop.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -22,13 +23,16 @@ public class Order {
     @Getter
     private Long id;
     @Getter
+    private User user;
+    @Getter
     private OrderStatus status;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
     private final List<OrderDiscountCoupon> discountCoupons = new ArrayList<>();
 
     @Builder
-    public Order(Long id, @NonNull OrderStatus status, @NonNull List<OrderLineItem> orderLineItems, List<OrderDiscountCoupon> discountCoupons) {
+    public Order(Long id, @NonNull User user, @NonNull OrderStatus status, @NonNull List<OrderLineItem> orderLineItems, List<OrderDiscountCoupon> discountCoupons) {
         this.id = id;
+        this.user = user;
         this.status = status;
         this.orderLineItems.addAll(orderLineItems);
         this.discountCoupons.addAll(requireNonNullElse(discountCoupons, emptyList()));

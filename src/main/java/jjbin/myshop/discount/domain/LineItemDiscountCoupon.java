@@ -1,9 +1,9 @@
 package jjbin.myshop.discount.domain;
 
 import jjbin.myshop.discount.domain.context.LineItemDiscountContext;
+import jjbin.myshop.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NonNull;
 
 
 public class LineItemDiscountCoupon extends DiscountCoupon<LineItemDiscountContext> {
@@ -11,8 +11,8 @@ public class LineItemDiscountCoupon extends DiscountCoupon<LineItemDiscountConte
     private Long id;
 
     @Builder
-    public LineItemDiscountCoupon(Long id, @NonNull DiscountCouponSpecification couponSpec, @NonNull CouponStatus status) {
-        super(couponSpec, status);
+    public LineItemDiscountCoupon(Long id, User user, DiscountCouponSpecification couponSpec, CouponStatus status) {
+        super(user, couponSpec, status);
         this.id = id;
     }
 }

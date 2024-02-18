@@ -1,13 +1,18 @@
 package jjbin.myshop.payment.domain;
 
 import jjbin.myshop.generic.domain.Money;
+import jjbin.myshop.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
+
+import java.util.Objects;
 
 public class Payment {
 
     public enum PaymentStatus{PENDING, COMPLETED, FAILED}
     private Long id;
+    private User user;
 
     @Getter private PaymentStatus status;
     private final PaymentMethod method;
@@ -16,12 +21,13 @@ public class Payment {
     @Getter private Money paymentAmount;
 
     @Builder
-    public Payment(Long id, PaymentStatus status,PaymentMethod method, Money orderAmount,Money discountAmount) {
+    public Payment(Long id, @NonNull User user, PaymentStatus status, @NonNull PaymentMethod method, @NonNull Money orderAmount, Money discountAmount) {
         this.id = id;
+        this.user = user;
         this.status = status;
         this.method = method;
         this.orderAmount = orderAmount;
-        this.discountAmount = discountAmount;
+        this.discountAmount = Objects.requireNonNullElse(discountAmount, Money.ZERO);
     }
 
     public void pay() {
@@ -47,9 +53,5 @@ public class Payment {
 
     private void failed(){
         status = PaymentStatus.FAILED;
-    }
-
-    public PaymentStatus getStatus() {
-        return status;
     }
 }

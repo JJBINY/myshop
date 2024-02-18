@@ -4,11 +4,13 @@ import jjbin.myshop.order.domain.Order;
 import jjbin.myshop.order.domain.OrderLineItem;
 import jjbin.myshop.order.domain.OrderOption;
 import jjbin.myshop.order.domain.OrderOptionGroup;
+import jjbin.myshop.user.domain.User;
 
 public class OrderMapper {
 
-    public Order mapFrom(Cart cart) {
+    public Order mapFrom(User user, Cart cart) {
         return Order.builder()
+                .user(user)
                 .status(Order.OrderStatus.PENDING)
                 .orderLineItems(cart.getCartLineItems().stream().map(this::toOrderlineItem).toList())
                 .discountCoupons(cart.getDiscountCoupons())
