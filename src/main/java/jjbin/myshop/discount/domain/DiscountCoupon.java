@@ -2,6 +2,7 @@ package jjbin.myshop.discount.domain;
 
 import jjbin.myshop.discount.domain.context.DiscountContext;
 import jjbin.myshop.generic.domain.Money;
+import jjbin.myshop.user.domain.User;
 import lombok.NonNull;
 
 import static jjbin.myshop.discount.domain.DiscountCoupon.CouponStatus.USED;
@@ -10,10 +11,12 @@ import static jjbin.myshop.discount.domain.DiscountCoupon.CouponStatus.USED;
 public abstract class DiscountCoupon<T extends DiscountContext> {
     public enum CouponStatus {VALID, USED}
 
+    protected User user;
     protected DiscountCouponSpecification couponSpec;
     protected CouponStatus status;
 
-    public DiscountCoupon(@NonNull DiscountCouponSpecification couponSpec, @NonNull CouponStatus status) {
+    public DiscountCoupon(@NonNull User user, @NonNull DiscountCouponSpecification couponSpec, @NonNull CouponStatus status) {
+        this.user = user;
         this.couponSpec = couponSpec;
         this.status = status;
     }
