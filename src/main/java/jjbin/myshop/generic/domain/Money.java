@@ -40,9 +40,18 @@ public class Money {
         return amount.compareTo(other.amount) < 0;
     }
 
+    public boolean isLessThanOrEqual(Money other) {
+        return amount.compareTo(other.amount) <= 0;
+    }
+
+    public boolean isGreaterThan(Money other){
+        return amount.compareTo(other.amount) > 0;
+    }
+
     public boolean isGreaterThanOrEqual(Money other){
         return amount.compareTo(other.amount) >= 0;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,4 +69,5 @@ public class Money {
     public String toString() {
         return amount + "원";
     }
+
 }

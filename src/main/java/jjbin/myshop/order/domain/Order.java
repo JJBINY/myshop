@@ -1,49 +1,59 @@
 package jjbin.myshop.order.domain;
 
+import jjbin.myshop.discount.domain.OrderDiscountCoupon;
+import jjbin.myshop.discount.domain.context.OrderDiscountContext;
 import jjbin.myshop.generic.domain.Money;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
-import static jjbin.myshop.order.domain.Order.OrderStatus.*;
+import static java.util.Objects.requireNonNullElse;
+import static jjbin.myshop.order.domain.Order.OrderStatus.ORDERED;
+import static jjbin.myshop.order.domain.Order.OrderStatus.PAYED;
 
 public class Order {
-
     public enum OrderStatus {PENDING, ORDERED, PAYED}
 
-    private List<OrderLineItem> orderLineItems = new ArrayList<>();
-    private OrderStatus orderStatus;
+    @Getter
+    private Long id;
+    @Getter
+    private OrderStatus status;
+    private final List<OrderLineItem> orderLineItems = new ArrayList<>();
+    private final List<OrderDiscountCoupon> discountCoupons = new ArrayList<>();
 
     @Builder
-    public Order(@NonNull List<OrderLineItem> orderLineItems, OrderStatus orderStatus) {
+    public Order(Long id, @NonNull OrderStatus status, @NonNull List<OrderLineItem> orderLineItems, List<OrderDiscountCoupon> discountCoupons) {
+        this.id = id;
+        this.status = status;
         this.orderLineItems.addAll(orderLineItems);
-        this.orderStatus = Objects.requireNonNullElse(orderStatus, PENDING);
+        this.discountCoupons.addAll(requireNonNullElse(discountCoupons, emptyList()));
 
         checkInvariant();
     }
 
-    private void checkInvariant(){
-        if(orderLineItems.isEmpty()){
+    private void checkInvariant() {
+        if (orderLineItems.isEmpty()) {
             throw new IllegalStateException("주문 항목은 필수입니다.");
         }
 
-        requireNonNull(orderStatus);
+        requireNonNull(status);
     }
 
     public void place() {
         validate();
 
         orderLineItems.stream().forEach(OrderLineItem::place);
-        orderStatus = ORDERED;
+        ordered();
 
-        assert isOrdered();
+        assert status == ORDERED;
     }
 
-    private void validate(){
+    private void validate() {
         if (orderLineItems.isEmpty()) {
             throw new IllegalStateException("주문 항목이 비어 있습니다.");
         }
@@ -51,28 +61,30 @@ public class Order {
         orderLineItems.forEach(OrderLineItem::validate);
     }
 
-    public void payed(){
-        orderStatus = PAYED;
+    private void ordered() {
+        status = ORDERED;
+    }
 
-        assert isPayed();
+    public void payed() {
+        status = PAYED;
+
+        assert status == PAYED;
     }
 
     public Money calculateTotalPrice() {
         Money totalPrice = Money.sum(orderLineItems, OrderLineItem::calculatePrice);
 
-        if(totalPrice.isLessThan(Money.ZERO)){
+        if (totalPrice.isLessThan(Money.ZERO)) {
             throw new IllegalStateException("주문 금액은 0원 이상이어야 합니다.");
         }
         return totalPrice;
     }
 
-
-    public boolean isOrdered() {
-        return orderStatus == ORDERED;
-    }
-
-    public boolean isPayed() {
-        return orderStatus == PAYED;
+    public OrderDiscountContext toDiscountContext() {
+        return OrderDiscountContext.builder()
+                .lineItemContexts(orderLineItems.stream().map(OrderLineItem::toDiscountContext).toList())
+                .discountCoupons(discountCoupons)
+                .build();
     }
 
 }

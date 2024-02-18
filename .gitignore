@@ -85,3 +85,6 @@ projectName.iml
 *.DS_Store
 /local.properties
 target/
+
+# draw.io
+.$diagrams.*

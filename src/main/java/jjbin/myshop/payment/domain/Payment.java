@@ -1,22 +1,55 @@
 package jjbin.myshop.payment.domain;
 
 import jjbin.myshop.generic.domain.Money;
-import jjbin.myshop.order.domain.Order;
+import lombok.Builder;
+import lombok.Getter;
 
 public class Payment {
 
-    private final Order order;
-    private final PaymentMethod method;
-    private final Money amount;
+    public enum PaymentStatus{PENDING, COMPLETED, FAILED}
+    private Long id;
 
-    public Payment(Order order, PaymentMethod method, Money amount) {
-        this.order = order;
+    @Getter private PaymentStatus status;
+    private final PaymentMethod method;
+    @Getter private final Money orderAmount;
+    @Getter private final Money discountAmount;
+    @Getter private Money paymentAmount;
+
+    @Builder
+    public Payment(Long id, PaymentStatus status,PaymentMethod method, Money orderAmount,Money discountAmount) {
+        this.id = id;
+        this.status = status;
         this.method = method;
-        this.amount = amount;
+        this.orderAmount = orderAmount;
+        this.discountAmount = discountAmount;
     }
 
     public void pay() {
-        method.pay(amount);
-        order.payed();
+        paymentAmount = calculatePaymentAmount();
+        failed();
+        method.pay(paymentAmount);
+        completed();
+
+        assert status == PaymentStatus.COMPLETED;
+    }
+
+
+    private Money calculatePaymentAmount() {
+        Money amount = orderAmount.minus(discountAmount);
+
+        assert amount.isGreaterThanOrEqual(Money.ZERO);
+        return amount;
+    }
+
+    private void completed(){
+        status = PaymentStatus.COMPLETED;
+    }
+
+    private void failed(){
+        status = PaymentStatus.FAILED;
+    }
+
+    public PaymentStatus getStatus() {
+        return status;
     }
 }
