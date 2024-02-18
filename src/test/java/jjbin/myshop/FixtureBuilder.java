@@ -28,6 +28,8 @@ import jjbin.myshop.product.domain.OptionGroup.OptionGroupBuilder;
 import jjbin.myshop.product.domain.OptionGroupSpecification.OptionGroupSpecificationBuilder;
 import jjbin.myshop.product.domain.OptionSpecification.OptionSpecificationBuilder;
 import jjbin.myshop.product.domain.Product.ProductBuilder;
+import jjbin.myshop.user.domain.User;
+import jjbin.myshop.user.domain.User.UserBuilder;
 
 import java.util.List;
 
@@ -95,6 +97,7 @@ public class FixtureBuilder {
 
     public static OrderBuilder anOrder() {
         return Order.builder()
+                .user(anUser().build())
                 .status(Order.OrderStatus.PENDING)
                 .orderLineItems(List.of(anOrderLineItem().build()));
     }
@@ -154,6 +157,7 @@ public class FixtureBuilder {
 
     public static OrderDiscountCouponBuilder anOrderDiscountCouponWithPolicy(DiscountPolicy policy) {
         return OrderDiscountCoupon.builder()
+                .user(anUser().build())
                 .status(DiscountCoupon.CouponStatus.VALID)
                 .couponSpec(aDiscountCouponSpec()
                         .policy(policy)
@@ -162,21 +166,20 @@ public class FixtureBuilder {
 
     public static LineItemDiscountCouponBuilder aLineItemDiscountCoupon() {
         return LineItemDiscountCoupon.builder()
+                .user(anUser().build())
                 .status(DiscountCoupon.CouponStatus.VALID)
                 .couponSpec(aDiscountCouponSpec().build());
     }
 
     public static LineItemDiscountCouponBuilder aLineItemDiscountCouponWithPolicy(DiscountPolicy policy) {
-        return LineItemDiscountCoupon.builder()
-                .status(DiscountCoupon.CouponStatus.VALID)
+        return aLineItemDiscountCoupon()
                 .couponSpec(aDiscountCouponSpec()
                         .policy(policy)
                         .build());
     }
 
     public static LineItemDiscountCouponBuilder anExclusiveLineItemDiscountCouponWithPolicy(DiscountPolicy policy) {
-        return LineItemDiscountCoupon.builder()
-                .status(DiscountCoupon.CouponStatus.VALID)
+        return aLineItemDiscountCoupon()
                 .couponSpec(aDiscountCouponSpec()
                         .policy(policy)
                         .exclusive(true)
@@ -203,10 +206,18 @@ public class FixtureBuilder {
 
     public static PaymentBuilder aPayment() {
         return Payment.builder()
+                .user(anUser().build())
                 .status(Payment.PaymentStatus.PENDING)
                 .orderAmount(BASIC_OPTION_PRICE)
                 .discountAmount(Money.wons(1000))
                 .method(new Cash(BASIC_OPTION_PRICE));
+    }
+
+    public static UserBuilder anUser(){
+        return User.builder()
+                .email("my@email.com")
+                .password("password@12")
+                .name("user");
     }
 
 }

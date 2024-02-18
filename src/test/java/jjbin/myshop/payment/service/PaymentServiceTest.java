@@ -4,6 +4,7 @@ import jjbin.myshop.discount.service.DiscountService;
 import jjbin.myshop.order.domain.Order;
 import jjbin.myshop.payment.domain.Cash;
 import jjbin.myshop.payment.domain.Payment;
+import jjbin.myshop.user.domain.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,10 +20,11 @@ class PaymentServiceTest {
     void 주문_결제() throws Exception {
         // given
         Order order = anOrder().build();
+        User user = anUser().build();
         PaymentService sut = new PaymentService(new DiscountService(List.of(aLineItemDiscount().build())));
 
         // when
-        Payment payment = sut.payOrder(order, new Cash(BASIC_OPTION_PRICE.times(ITEM_QUANTITY)));
+        Payment payment = sut.payOrder(user,order, new Cash(BASIC_OPTION_PRICE.times(ITEM_QUANTITY)));
 
         // then
         assertThat(order.getStatus()).isEqualTo(Order.OrderStatus.PAYED);

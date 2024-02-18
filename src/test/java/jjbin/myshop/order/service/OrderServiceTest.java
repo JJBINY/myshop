@@ -1,6 +1,7 @@
 package jjbin.myshop.order.service;
 
 import jjbin.myshop.order.domain.Order;
+import jjbin.myshop.user.domain.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,10 +31,11 @@ class OrderServiceTest {
                                 .build()))
                         .build()))
                 .build();
+        User user = anUser().build();
         OrderService sut = new OrderService(new OrderMapper());
 
         // when
-        Order order = sut.placeOrder(cart);
+        Order order = sut.placeOrder(user,cart);
 
         // then
         Assertions.assertThat(order.getStatus()).isEqualTo(ORDERED);
